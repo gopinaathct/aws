@@ -1,0 +1,10 @@
+---
+- name: system information
+  hosts: node1,node2,node3
+  tasks:
+   - name: system information
+     copy:
+      content: "{{ ansible_hostname }} \n {{ansible_processor_count}} \n {{ansible_default_ipv4.address}} \n {{ansible_default_ipv4.macaddress}}\n"
+      dest: /var/tmp/sysinfo.html
+      mode: 0644
+...
